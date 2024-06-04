@@ -1,0 +1,254 @@
+[
+  {
+    "name": "OnStart",
+    "description": "An event that emits once when the routine is started.",
+    "outputs": {
+      "OnStart": "Emitted exactly once when the routine is started."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "GetMachineStatus",
+    "description": "Watches the selected device for status changes. Emits the corresponding events when the status changes occur. The events can emit an indefinite number of times.",
+    "inputs": {
+      "Device": "The device to operate on."
+    },
+    "outputs": {
+      "OnStartRunning": "Emitted when an InSpec program is started in InSpec.",
+      "OnStopped": "Emitted when an InSpec program is stopped with the stop button or by using StopRunning.",
+      "OnFinished": "Emitted when an InSpec program finishes normally.",
+      "OnAbandoned": "Emitted when an InSpec program is closed before completion.",
+      "OnManualMeasure": "Emitted when a manual point placement is required. Outputs the name of the feature paused on.",
+      "OnFeatureFailed": "Emitted when a feature fails to be measured (Requires \"Pause program if a Tool fails to measure\" to be enabled). Outputs the name of the feature that failed.",
+      "OnOutOfTolerance": "Emitted when a feature is out of tolerance (Requires \"Pause program if a Feature is out of tolerance\" to be enabled). Outputs the name of the feature that was out of tolerance.",
+      "OnFault": "Emitted when the machine encounters a fault (eg. Axis stalled)."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "GetVariable",
+    "description": "Reads the value of the selected variable. Changes in the variable can be detected or the value can be directly.",
+    "inputs": {
+      "Variable": "The variable to read."
+    },
+    "outputs": {
+      "Value": "The current value of the variable. Passive.",
+      "OnChange": "Emitted when the value of the variable is modified. Outputs the new value of the variable."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "ContinueRunning",
+    "description": "Continues running the InSpec program on the selected device if it was paused.",
+    "inputs": {
+      "Device": "The device to operate on"
+    },
+    "outputs": {
+      "Completion": "Emitted when the device has continued running."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "GoToLoadPosition",
+    "description": "Moves the selected device to the load position",
+    "inputs": {
+      "Device": "The device to operate on"
+    },
+    "outputs": {
+      "Completion": "Emitted when the device has reached load position."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "ReturnFromLoadPosition",
+    "description": "Returns the selected device from the load position",
+    "inputs": {
+      "Device": "The device to operate on"
+    },
+    "outputs": {
+      "Completion": "Emitted when the device returned from load position."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "RunProgram",
+    "description": "Runs the given program filename on the selected device. The program name is relative to the directory configured for the device. The command is active until the program has been finished, stopped, or abandoned. OnManualMeasure, onFeaturedFailed, and onOutOfTolerance may emit multiple times during the execution of the InSpec program.",
+    "inputs": {
+      "Device": "The device to operate on.",
+      "Program": "The InSpec program file to run."
+    },
+    "outputs": {
+      "Completion": "Emitted when the program has been finished, stopped, or abandoned.",
+      "OnStopped": "Emitted when an InSpec program is stopped with the stop button or by using StopRunning.",
+      "OnFinished": "Emitted when an InSpec program finishes normally.",
+      "OnAbandoned": "Emitted when an InSpec program is closed before completion.",
+      "OnManualMeasure": "Emitted when a manual point placement is required. Outputs the name of the feature paused on.",
+      "OnFeatureFailed": "Emitted when a feature fails to be measured (Requires \"Pause program if a Tool fails to measure\" to be enabled). Outputs the name of the feature that failed.",
+      "OnOutOfTolerance": "Emitted when a feature is out of tolerance (Requires \"Pause program if a Feature is out of tolerance\" to be enabled). Outputs the name of the feature that was out of tolerance.",
+      "OnFault": "Emitted when the machine encounters a fault (eg. Axis stalled)."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "StopRunning",
+    "description": "Stops the InSpec program on the selected device.",
+    "inputs": {
+      "Device": "The device to operate on"
+    },
+    "outputs": {
+      "Completion": "Emitted when the program has stopped."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "GetFeatureProperty",
+    "description": "Gets the value of a specific property for the specified feature name. The output types will depend on the property type being queried.",
+    "inputs": {
+      "Device": "The device to operate on",
+      "FeatureName": "The name of the feature as shown in InSpec",
+      "FeatureType": "Needs to match the feature type in the InSpec program",
+      "Property": "The property to retrieve information about."
+    },
+    "outputs": {
+      "Completion": "Emitted when the value has been received.",
+      "Varies": "The outputs will change dynamically based on the property type selected."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "PlaceManualPoint",
+    "description": "Simulates placing a manual point at the current machine coordinates for the selected device.",
+    "inputs": {
+      "Device": "The device to operate on"
+    },
+    "outputs": {
+      "Completion": "Emitted when the manual point has been placed."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "DriveToPosition",
+    "description": "Moves the device to the given XYZ coordinate in MCS. Coordinates are in millimeters.",
+    "inputs": {
+      "Device": "The device to operate on",
+      "Xcoordinate": "X coordinate of the movement (mm).",
+      "Ycoordinate": "Y coordinate of the movement (mm).",
+      "Zcoordinate": "Z coordinate of the movement (mm)."
+    },
+    "outputs": {
+      "Completion": "Emitted when the movement is complete."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "SetVariable",
+    "description": "Writes the value of the selected variable. The input type will change depending on the variable type.",
+    "inputs": {
+      "Variable": "The variable to set the value of.",
+      "Value": "The new value to assign to the variable."
+    },
+    "outputs": {
+      "Completion": "Emitted when the variable has been set."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "If",
+    "description": "Receives a Boolean value and emits one output if the value is true or the other if false.",
+    "inputs": {
+      "Value": "The Boolean value to check."
+    },
+    "outputs": {
+      "Completion": "Emitted regardless of the input value received.",
+      "True": "Emitted when the input value is true",
+      "False": "Emitted when the input value is false"
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "Switch",
+    "description": "Receives a value and selects the output case that matches the value. If no values match the default output is emitted.",
+    "inputs": {
+      "Value": "The value to match against.",
+      "Case-X": "One of the desired values to match. A variable number of cases is supported. Case values should be unique. The case type assumes the type of the input value."
+    },
+    "outputs": {
+      "Completion": "Emitted regardless of the input value received.",
+      "Case-X": "Emitted when the input value matches the value of the case.",
+      "Default": "Emitted when the input value does not match any of the case values."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "AwaitMultiple",
+    "description": "Allows waiting for multiple events to complete before continuing. Each trigger with at least one link must be fulfilled before the completion output is emitted.",
+    "inputs": {
+      "Triggers": "Up to 4 events can be waited on. AwaitMultiples can be chained to wait on more events."
+    },
+    "outputs": {
+      "Completion": "Emitted when all triggers with at least one link are fulfilled."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "BooleanComparison",
+    "description": "Performs a Boolean comparison on two Boolean values.",
+    "inputs": {
+      "Operand 1": "The first Boolean value.",
+      "Operand 2": "The second Boolean value."
+    },
+    "outputs": {
+      "Completion": "Emitted regardless of the input values received.",
+      "And": "Emitted when both input values are True.",
+      "Or": "Emitted when any input value is True.",
+      "Xor": "Emitted when exactly one input value is True."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "NumericComparison",
+    "description": "Performs a numeric comparison between two input values.",
+    "inputs": {
+      "Operand 1": "The first value.",
+      "Operand 2": "The second value."
+    },
+    "outputs": {
+      "Completion": "Emitted regardless of the input values received.",
+      ">": "Emitted when the first operand is greater than the second.",
+      "=": "Emitted when the first operand is equal to the second.",
+      "<": "Emitted when the first operand is less than the second."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "Arithmetic",
+    "description": "Performs a math operation on two input values.",
+    "inputs": {
+      "Operand 1": "The first value.",
+      "Operator": "The operation to perform on the operands.",
+      "Operand 2": "The second value."
+    },
+    "outputs": {
+      "Completion": "Emitted regardless of the input values received.",
+      "Result": "The result of applying the operator to the operands",
+      "Error": "If the operation results in an undefined value (eg divide by zero)"
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "Wait",
+    "description": "Waits a given amount of time in milliseconds (ms).",
+    "inputs": {
+      "Time": "The duration of time to wait in milliseconds."
+    },
+    "outputs": {
+      "Completion": "Emitted after the amount of time ellapses."
+    },
+    "img": "on-start.png"
+  },
+  {
+    "name": "Stop",
+    "description": "Stops the routine. Equivalent to clicking the \"Stop\" button at the top of the application",
+    "img": "on-start.png"
+  }
+]

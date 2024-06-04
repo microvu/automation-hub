@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Inputs",
+    "data": [
+      {
+        "description": "Command nodes have at least one input. Inputs always appear on the left side of the node and are indicated by a circle, square, or diamond shape.",
+        "img": "inputs.png"
+      }
+    ]
+  },
+  {
+    "name": "Outputs",
+    "data": [
+      {
+        "description": "All event nodes will have an output and most commands will too. Outputs always appear on the right side of the node and are indicated by a circle or square shape.",
+        "img": "outputs.png"
+      }
+    ]
+  },
+  {
+    "name": "Trigger Inputs",
+    "data": [
+      {
+        "description": "Trigger inputs are indicated with a diamond and are located in the top left of the command. Triggers allow for controlling when commands are ran",
+        "img": "trigger-inputs.png"
+      }
+    ]
+  },
+  {
+    "name": "Active Inputs",
+    "data": [
+      {
+        "description": "Active inputs are indicated with a circle. Active inputs require a link to receive a value.",
+        "img": "active-inputs.png"
+      }
+    ]
+  },
+  {
+    "name": "Passive Inputs",
+    "data": [
+      {
+        "description": "Passive inputs are indicated with a square. Passive inputs allow a value to be entered manually for that input, but links can still be connected to passive inputs in which case the value receive via the link is used instead.",
+        "img": "passive-inputs.png"
+      }
+    ]
+  },
+  {
+    "name": "Active Outputs",
+    "data": [
+      {
+        "description": "Active outputs are indicated with a circle. They can link to any type of input. Active outputs emit a value at a single point in time.",
+        "img": "active-outputs.png"
+      }
+    ]
+  },
+  {
+    "name": "Passive Outputs",
+    "data": [
+      {
+        "description": "Passive outputs are indicated with a square. Passive outputs represent a persistent value not tied to a specific time Because of this, they cannot be linked with trigger inputs.",
+        "img": "passive-outputs.png"
+      }
+    ]
+  }
+]

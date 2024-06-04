@@ -1,0 +1,4 @@
+*.sw?
+.jekyll-cache
+.vscode
+_site/

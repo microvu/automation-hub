@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Axiom 1 - Links transfer data from outputs to inputs",
+    "data": [
+      {
+        "description": "Outputs are always located on the right side of a command. Inputs are always on the left. A link can only be connected between an output and an input. An activated link, meaning it is carrying data, is white. An idle link is black.",
+        "img": "Axiom1.png"
+      }
+    ]
+  },
+  {
+    "name": "Axiom 2 - Commands in series run sequentially",
+    "data": [
+      {
+        "description": "In the example below, PlaceManualPoint will never run before Wait, and Wait will not run until GoToLoadPosition completes.",
+        "img": "Axiom2.png"
+      }
+    ]
+  },
+  {
+    "name": "Axiom 3 - Commands in parallel run concurrently",
+    "data": [
+      {
+        "description": "Below, both GoToLoadPosition and DriveToPosition will run at the same time. Notice they are operating on different devices. It is important not to run multiple commands on the same device at the same time or unexpected behavior might occur.",
+        "img": "Axiom3.png"
+      }
+    ]
+  },
+  {
+    "name": "Axiom 4 - One output can link to multiple inputs",
+    "data": [
+      {
+        "description": "Outputs can connect to multiple inputs. When the output emits a value, the same value is sent to all inputs simultaneously.",
+        "img": "Axiom4.png"
+      }
+    ]
+  },
+  {
+    "name": "Axiom 5 - Parameters can only have a single link",
+    "data": [
+      {
+        "description": "Parameters (inputs that require a value) only accept a single link. If a second is added the first is disconnected.",
+        "img": "Axiom5.png"
+      }
+    ]
+  },
+  {
+    "name": "Axiom 6 - Triggers can have multiple links",
+    "data": [
+      {
+        "description": "Triggers can have zero or more links. When multiple links are connected to the same trigger if any of them are actived the trigger is fulfilled.",
+        "img": "Axiom6a.png"
+      },
+      {
+        "description": "When a command has multiple triggers each trigger that has at least one link must be fulfilled.",
+        "img": "Axiom6b.png"
+      },
+      {
+        "description": "",
+        "img": "Axiom6c.png"
+      }
+    ]
+  },
+  {
+    "name": "Axiom 7 - All inputs with a link must be fulfilled",
+    "data": [
+      {
+        "description": "All inputs with a link must be fulfilled to run the command. In the example below, the outpus: OnManualMeasure, OnChange, and Result must all happen in order for DriveToPosition to run.",
+        "img": "Axiom7a.png"
+      },
+      {
+        "description": "",
+        "img": "Axiom7b.png"
+      }
+    ]
+  },
+  {
+    "name": "Axiom 8 - Commands that cannot run appear faded and gray",
+    "data": [
+      {
+        "description": "One reason that a command can't run is that the command may be missing a link. Make sure all active inputs are connected. All subsequent commmands in the chain will also show as gray.",
+        "img": "Axiom8a.png"
+      },
+      {
+        "description": "The second reason that a command will not run is because a dead cycle exists. Every command in the cycle relies on the previous command to run fisrt.",
+        "img": "Axiom8b.png"
+      }
+    ]
+  }
+]
